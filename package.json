@@ -1,0 +1,21 @@
+{
+  "name": "src",
+  "version": "0.0.0",
+  "description": "Simple Redis Cache",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wlaurance/src.git"
+  },
+  "keywords": [
+    "Simple",
+    "Redis",
+    "Cache"
+  ],
+  "author": "Will S. Laurance",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
