@@ -30,3 +30,11 @@ cache.get('key', function(err, value){
 ```
 If the key has expired, err will not be used to determine this. Err will
 only be a non null value when an error is thrown from Redis.
+
+If you want to delete a key from the cache explicity src provides this
+functionality through ```cache.del```
+
+Callbacks are optional for del
+```javascript
+cache.del('key', [cb]);
+```
