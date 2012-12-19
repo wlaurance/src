@@ -2,6 +2,7 @@ src
 ===
 
 Simple Redis Cache
+[![Build Status](https://travis-ci.org/wlaurance/src.png)](https://travis-ci.org/wlaurance/src)
 
 ###Usage
 
