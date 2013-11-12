@@ -13,7 +13,7 @@ number of seconds a value is non expired in Redis.
 var src = require('src');
 var cache = src(
   {
-    url:'redis://redistogo:fe439e7881422559889d6be3838c6418@spadefish.redistogo.com:9073/'
+    url:'redis://user:password@example.com:9073/'
     ,expiry:2
   }
 );
