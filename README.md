@@ -2,6 +2,7 @@ src
 ===
 
 Simple Redis Cache
+[![Build Status](https://travis-ci.org/wlaurance/src.png)](https://travis-ci.org/wlaurance/src)
 
 ###Usage
 
@@ -22,7 +23,7 @@ Callbacks for set are optional
 cache.set('key', 'value', [cb]);
 ```
 get requires a callback
-```
+```javascript
 cache.get('key', function(err, value){
   if(typeof value !== 'undefined')
     console.log(value);
