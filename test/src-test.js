@@ -1,11 +1,11 @@
 var assert = require('assert');
 var src = require(__dirname + '/../index');
-var cache = src({url:'redis://redistogo:fe439e7881422559889d6be3838c6418@spadefish.redistogo.com:9073/', expiry:2});
+var cache = src({expiry:2});
 describe('Simple Redis Cache', function(){
   it('should connect to a redis instance', function(done){
     //Give redis some time to init
     setTimeout(function(){
-      assert.equal('spadefish.redistogo.com', cache.client.host);
+      assert.equal('localhost', cache.client.host);
       done();
     }, 100);
   });
