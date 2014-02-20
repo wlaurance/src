@@ -19,9 +19,9 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "redis-url": "~0.1.0"
+    "redis-url": "~0.2.0"
   },
   "devDependencies": {
-    "mocha": "~1.14.0"
+    "mocha": "~1.17.1"
   }
 }
