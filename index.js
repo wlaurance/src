@@ -1,7 +1,9 @@
 var redis = require('redis-url');
+var uuid = require('uuid');
 module.exports = function(config){
   var cache = {};
   var client = redis.connect(config.url);
+  var id = uuid.v1();
   cache.client = client;
   cache.set = function(key, value, cb){
     client.set(key, value, function(err){
@@ -16,6 +18,9 @@ module.exports = function(config){
   }
   cache.del = function(key, cb){
     client.del(key, cb);
+  }
+  cache.id = function() {
+    return id;
   }
   return cache;
 }
