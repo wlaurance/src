@@ -1,12 +1,19 @@
 var redis = require('redis-url');
 var uuid = require('uuid');
+var _ = require('underscore')
 module.exports = function(config){
   var cache = {};
   var client = redis.connect(config.url);
   var id = uuid.v1();
   cache.client = client;
+  function prefix() {
+    return id + ':'
+  }
   function compose(k) {
-    return id + ':' + k;
+    return prefix() + k
+  }
+  function decompose(k) {
+    return k.replace(prefix(), '')
   }
   cache.set = function(key, value, cb){
     key = compose(key)
@@ -28,6 +35,14 @@ module.exports = function(config){
   }
   cache.id = function() {
     return id;
+  }
+  cache.keys = function(cb) {
+    client.keys(prefix() + '*', function(err, keys) {
+      if (err) {
+        return cb(err)
+      }
+      cb(null, _.map(keys, decompose))
+    })
   }
   return cache;
 }

@@ -48,15 +48,15 @@ describe('Simple Redis Cache', function(){
     assert.ok(cache.id())
   })
   it('should list the cache keys', function(done) {
-    var keys = [
+    var keys = _.map([
       1,2,3,4,5,6,7,8,9,10,11,12
-    ]
+    ], String)
     async.each(keys, function(k, cb) {
       cache.set(k, new Date().toJSON(), cb)
     }, function() {
       cache.keys(function(err, ks) {
         _.each(keys, function(k) {
-          assert.ok(ks[k])
+          assert.ok(ks.indexOf(k) !== -1)
         })
         done()
       });
