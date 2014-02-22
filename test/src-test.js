@@ -42,4 +42,7 @@ describe('Simple Redis Cache', function(){
       });
     });
   });
+  it('should have a function to get the cache id', function() {
+    assert.ok(cache.id())
+  })
 });
