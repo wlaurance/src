@@ -36,12 +36,12 @@ module.exports = function(config){
   cache.id = function() {
     return id;
   }
-  cache.keys = function(cb) {
+  cache.keys = function(cb, opts) {
     client.keys(prefix() + '*', function(err, keys) {
       if (err) {
         return cb(err)
       }
-      cb(null, _.map(keys, decompose))
+      cb(null, (opts && opts.raw) ? keys : _.map(keys, decompose))
     })
   }
   return cache;

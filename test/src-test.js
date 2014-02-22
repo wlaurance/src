@@ -58,7 +58,13 @@ describe('Simple Redis Cache', function(){
         _.each(keys, function(k) {
           assert.ok(ks.indexOf(k) !== -1)
         })
-        done()
+        cache.keys(function(er, ks) {
+          var raws = _.map(keys, function(p) { return cache.id() + ':' + p })
+          _.each(raws, function(k) {
+            assert.ok(ks.indexOf(k) !== -1)
+          })
+          done()
+        }, { raw: true })
       });
     })
   })
