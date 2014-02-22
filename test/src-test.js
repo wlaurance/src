@@ -47,6 +47,9 @@ describe('Simple Redis Cache', function(){
   it('should have a function to get the cache id', function() {
     assert.ok(cache.id())
   })
+  it('should allow setting cache id', function() {
+    assert.equal(src({id:'id-test'}).id(), 'id-test')
+  })
   it('should list the cache keys', function(done) {
     var keys = _.map([
       1,2,3,4,5,6,7,8,9,10,11,12

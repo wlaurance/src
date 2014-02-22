@@ -4,7 +4,7 @@ var _ = require('underscore')
 module.exports = function(config){
   var cache = {};
   var client = redis.connect(config.url);
-  var id = uuid.v1();
+  var id = config.id || uuid.v1();
   cache.client = client;
   function prefix() {
     return id + ':'
