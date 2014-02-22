@@ -23,6 +23,8 @@
     "uuid": "~1.4.1"
   },
   "devDependencies": {
-    "mocha": "~1.17.1"
+    "mocha": "~1.17.1",
+    "async": "~0.2.10",
+    "underscore": "~1.6.0"
   }
 }

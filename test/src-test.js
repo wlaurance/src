@@ -1,5 +1,7 @@
 var assert = require('assert');
 var src = require(__dirname + '/../index');
+var async = require('async')
+var _ = require('underscore')
 var cache = src({expiry:2});
 describe('Simple Redis Cache', function(){
   it('should connect to a redis instance', function(done){
@@ -44,5 +46,20 @@ describe('Simple Redis Cache', function(){
   });
   it('should have a function to get the cache id', function() {
     assert.ok(cache.id())
+  })
+  it('should list the cache keys', function(done) {
+    var keys = [
+      1,2,3,4,5,6,7,8,9,10,11,12
+    ]
+    async.each(keys, function(k, cb) {
+      cache.set(k, new Date().toJSON(), cb)
+    }, function() {
+      cache.keys(function(err, ks) {
+        _.each(keys, function(k) {
+          assert.ok(ks[k])
+        })
+        done()
+      });
+    })
   })
 });
