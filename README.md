@@ -4,7 +4,7 @@ src
 Simple Redis Cache
 [![Build Status](https://travis-ci.org/wlaurance/src.png)](https://travis-ci.org/wlaurance/src)
 
-###Usage
+### Usage
 
 src takes one hash parameter with url and expiry defined. Expiry is the
 number of seconds a value is non expired in Redis.
